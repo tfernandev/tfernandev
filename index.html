@@ -1818,7 +1818,7 @@
     <p class="section-label fade-up" style="text-align:center;">// 04 — contact</p>
     <h2 class="section-title fade-up" style="text-align:center;">Let's talk</h2>
     <p class="contact-intro fade-up">
-      Open to backend and full-stack roles. Contact by email or LinkedIn.
+      Open to backend and full-stack roles. Contact by email or GitHub.
     </p>
     <div class="contact-links fade-up">
       <a href="mailto:thiagofernandezdelgaudio@gmail.com" class="contact-link" id="email-link">
@@ -1828,7 +1828,7 @@
         </svg>
         email
       </a>
-      <a href="https://linkedin.com/in/" target="_blank" rel="noopener" class="contact-link" id="linkedin-link">
+      <a href="https://www.linkedin.com/in/tfernandev" target="_blank" rel="noopener" class="contact-link" id="linkedin-link">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
           <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
           <rect x="2" y="9" width="4" height="12" />
@@ -1836,7 +1836,7 @@
         </svg>
         linkedin
       </a>
-      <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link" id="github-link">
+      <a href="https://github.com/tfernandev" target="_blank" rel="noopener" class="contact-link" id="github-link">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
@@ -1856,7 +1856,6 @@
   <!-- ============ FOOTER ============ -->
   <footer>
     <p class="footer-text">Thiago Fernández — Backend engineer · Buenos Aires</p>
-    <p class="footer-text" id="year-footer"></p>
   </footer>
 
   <div id="lang-suggestion" class="lang-suggestion" hidden>
@@ -1944,7 +1943,7 @@
         'personal.contabilio.live': 'Coming soon',
         'contact.label': '// 04 — contact',
         'contact.title': 'Let\'s talk',
-        'contact.intro': 'Open to backend and full-stack roles. Contact by email or LinkedIn.',
+        'contact.intro': 'Open to backend and full-stack roles. Contact by email or GitHub.',
         'lang.suggestion': 'Your browser is in Spanish. View this portfolio in Spanish?',
       },
       es: {
@@ -1961,7 +1960,7 @@
         'personal.title': 'Proyectos personales',
         'contact.label': '// 04 — contacto',
         'contact.title': 'Hablemos',
-        'contact.intro': 'Disponible para roles backend y full stack. Contacto por correo o LinkedIn.',
+        'contact.intro': 'Disponible para roles backend y full stack. Contacto por correo o GitHub.',
         'lang.suggestion': 'Tu navegador está en español. ¿Ver este portfolio en español?',
         'proof.label': '// intro — evidencia visual',
         'proof.title': 'Trabajo seleccionado en producción',
@@ -2185,10 +2184,6 @@
       // Remove accidental duplicate consecutive dividers.
       document.querySelectorAll('hr.divider + hr.divider').forEach((el) => el.remove());
     });
-
-    // Year
-    document.getElementById('year-footer').textContent =
-      `© ${new Date().getFullYear()} · Built with vanilla HTML`;
 
     // Nav + fondo enlazado al scroll (auroras / blobs)
     const navbar = document.getElementById('navbar');
