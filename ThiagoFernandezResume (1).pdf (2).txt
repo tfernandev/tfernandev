@@ -1,0 +1,86 @@
+THIAGO FERNÁNDEZ
+Backend Developer en sistemas multi-tenant y APIs escalables
+5491125470714
+
+thiagofernandezdelgaudio@gmail.com
+
+BuenosAires
+
+Resumen
+Backend Developer con experiencia en desarrollo de APIs y sistemas distribuidos utilizando .NET y Node.js. Actualmente trabajando en plataformas
+empresariales multi-tenant con integraciones a sistemas legacy y servicios externos. Enfoque en rendimiento, seguridad y escalabilidad.
+Experiencia con Docker, Kubernetes, OAuth2 y bases de datos relacionales y NoSQL.
+
+Experiencia
+América Virtual
+Backend Developer
+
+03/2025 - Presente
+
+•Desarrollo de APIs REST con ASP.NET Core para plataformas de gestión tributaria.
+•Implementación de autenticación y autorización (OAuth2, JWT, control de roles).
+•Integración con sistemas legacy y APIs externas.
+•Optimización de consultas y uso de caching para mejorar tiempos de respuesta en
+APIs reduciendo latencia en 35%
+•Containerización con Docker y despliegue en Kubernetes / OpenShift.
+•Mejora de observabilidad mediante logging estructurado.
+
+Faristol
+02/2024 - 02/2025
+
+Desarrollador Mobile
+•Desarrollo de aplicación móvil con React Native y Expo.
+•Implementación de autenticación con Google OAuth2 y JWT.
+•Manejo de estado global y navegación.
+•Configuración de entornos y testing en dispositivos físicos.
+
+Flexwork Latam
+Desarrollador Full Stack
+
+11/2022 - 10/2023
+
+•Desarrollo de aplicaciones web con Next.js y Node.js.
+•Creación de APIs REST y arquitectura backend modular.
+•Integración con servicios externos mediante OAuth.
+•Implementación de autenticación y control de acceso.
+•Optimización de performance y estructura del sistema.
+
+Habilidades
+Backend: C#, .NET Core, ASP.NET Core, REST APIs, Microservices
+Frontend: React, Next.js, TypeScript
+Bases de datos: SQL Server, MongoDB, Firestore
+
+DevOps: Docker, Kubernetes, CI/CD
+Otros: OAuth2, JWT, SSO, OpenAPI
+
+Proyectos
+
+Sistema de Gestión de Socios
+
+01/2023
+
+•Desarrollo de aplicación web full stack con ASP.NET Core (C#, Razor Pages / MVC) y SQL Server para la administración de socios, reservas y
+pagos online.
+•Incluyó autenticación segura con Identity/JWT, recuperación de contraseñas y panel de reportes dinámicos conectados a base de datos
+relacional.
+•Se implementaron rutas protegidas, control de roles y un dashboard administrativo responsivo.
+
+Aplicación Móvil para Reservas Deportivas
+
+01/2023
+
+•Desarrollo de PWA conNext.js (React+ TypeScript)conectada a un backend en Firebase Functions y Firestore.
+•La aplicación ofrece reservas en tiempo real, notificaciones push y acceso offline mediante Service Workers.
+•Optimizada para uso móvil y escritorio, con despliegue en Firebase Hosting y CI/CD integrado.
+
+Educación
+Universidad Almirante Brown
+Licenciatura en Ciencia de Datos
+Ingles B2
+
+Curso Especializado Henry
+
+Buenos Aires, Argentina
+01/2022
+
+

@@ -1,0 +1,11 @@
+# Not part of the published portfolio site
+system-prompts-and-models-of-ai-tools/
+
+# Editor / local
+.cursor/
+mcps/
+Untitled
+
+# OS
+.DS_Store
+Thumbs.db
