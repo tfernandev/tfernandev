@@ -1068,6 +1068,42 @@
       margin: 0;
     }
 
+    .vibecoding-api-prompt-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 0 0 6px;
+    }
+
+    .vibecoding-api-prompt-field {
+      width: 100%;
+      min-height: 80px;
+      max-height: 200px;
+      resize: vertical;
+      padding: 10px 12px;
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .vibecoding-api-prompt-field::placeholder {
+      color: var(--muted);
+      opacity: 0.85;
+    }
+
+    .vibecoding-api-prompt-field:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.22);
+    }
+
     .vibecoding-api-smoke-btn {
       align-self: flex-start;
       font-family: var(--sans);
@@ -1798,6 +1834,8 @@
             <summary class="vibecoding-api-test-summary">API smoke test (CORS)</summary>
             <div class="vibecoding-api-smoke-inner">
               <p class="vibecoding-api-smoke-hint vibecoding-api-test-hint"></p>
+              <label class="vibecoding-api-prompt-label vibecoding-api-prompt-label-text" for="vibecoding-api-prompt">Prompt</label>
+              <textarea id="vibecoding-api-prompt" class="vibecoding-api-prompt-field" rows="3" autocomplete="off"></textarea>
               <button type="button" class="vibecoding-api-smoke-btn vibecoding-api-test-btn">Run test</button>
               <pre class="vibecoding-api-smoke-out" id="vibecoding-api-smoke-out" aria-live="polite"></pre>
             </div>
@@ -2033,6 +2071,9 @@
         'personal.vibecoding.apiTestSummary': 'API smoke test (CORS)',
         'personal.vibecoding.apiTestHint': 'Sends a small POST to the public Render API from this page’s origin. JSON with success or a model reply means CORS is allowed.',
         'personal.vibecoding.apiTestBtn': 'Run test',
+        'personal.vibecoding.apiPromptLabel': 'Your message',
+        'personal.vibecoding.apiPromptPlaceholder': 'Example: Summarize async/await in two sentences.',
+        'personal.vibecoding.apiPromptEmpty': 'Write a message before running the test.',
         'personal.contabilio.body': 'Tax calculators and simulators for Argentina (monotributo, ganancias). In development.',
         'personal.contabilio.live': 'Coming soon',
         'contact.label': '// 04 — contact',
@@ -2105,6 +2146,9 @@
         'personal.vibecoding.apiTestSummary': 'Prueba rápida de API (CORS)',
         'personal.vibecoding.apiTestHint': 'Envía un POST mínimo a la API pública en Render desde el origen de esta página. Si ves JSON con success o la respuesta del modelo, CORS está bien.',
         'personal.vibecoding.apiTestBtn': 'Probar',
+        'personal.vibecoding.apiPromptLabel': 'Tu mensaje',
+        'personal.vibecoding.apiPromptPlaceholder': 'Ejemplo: resumí async/await en dos oraciones.',
+        'personal.vibecoding.apiPromptEmpty': 'Escribí un mensaje antes de probar.',
         'personal.contabilio.body': 'Calculadoras y simuladores impositivos para Argentina (monotributo, ganancias). En desarrollo.',
         'personal.contabilio.live': 'Próximamente'
       }
@@ -2168,6 +2212,8 @@
         { sel: '.vibecoding-api-test-summary', key: 'personal.vibecoding.apiTestSummary' },
         { sel: '.vibecoding-api-test-hint', key: 'personal.vibecoding.apiTestHint' },
         { sel: '.vibecoding-api-test-btn', key: 'personal.vibecoding.apiTestBtn' },
+        { sel: '.vibecoding-api-prompt-label-text', key: 'personal.vibecoding.apiPromptLabel' },
+        { sel: '#vibecoding-api-prompt', key: 'personal.vibecoding.apiPromptPlaceholder', attr: 'placeholder' },
         { sel: '.personal-body-contabilio', key: 'personal.contabilio.body', html: true },
         { sel: '.personal-body-contabilio-live', key: 'personal.contabilio.live' },
         { sel: '#experience-timeline .section-label', key: 'experience.label' },
@@ -2193,7 +2239,7 @@
         { sel: '.contact-intro', key: 'contact.intro' },
       ];
 
-      map.forEach(({ sel, key, html, all }) => {
+      map.forEach(({ sel, key, html, all, attr }) => {
         const val = dict[key];
         if (val == null || val === '') return;
         const els = all
@@ -2203,7 +2249,8 @@
               return el ? [el] : [];
             })();
         els.forEach(el => {
-          if (html) el.innerHTML = val;
+          if (attr) el.setAttribute(attr, val);
+          else if (html) el.innerHTML = val;
           else el.textContent = val;
         });
       });
@@ -2286,8 +2333,17 @@
 
       const vcBtn = document.querySelector('.vibecoding-api-test-btn');
       const vcOut = document.getElementById('vibecoding-api-smoke-out');
-      if (vcBtn && vcOut) {
+      const vcPrompt = document.getElementById('vibecoding-api-prompt');
+      if (vcBtn && vcOut && vcPrompt) {
         vcBtn.addEventListener('click', async () => {
+          const promptText = (vcPrompt.value || '').trim();
+          if (!promptText) {
+            const lang = localStorage.getItem('lang') || FALLBACK_LANG;
+            const d = translations[lang] || translations[FALLBACK_LANG];
+            vcOut.textContent = d['personal.vibecoding.apiPromptEmpty'] || '';
+            vcPrompt.focus();
+            return;
+          }
           vcBtn.disabled = true;
           vcOut.textContent = '…';
           const t0 = performance.now();
@@ -2298,7 +2354,7 @@
                 'Content-Type': 'application/json',
                 'X-Tenant': 'google'
               },
-              body: JSON.stringify({ prompt: 'Reply with the single word: ok' })
+              body: JSON.stringify({ prompt: promptText })
             });
             const text = await res.text();
             const ms = Math.round(performance.now() - t0);
