@@ -1026,6 +1026,88 @@
       background: rgba(34, 211, 238, 0.08);
     }
 
+    .vibecoding-api-smoke {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(17, 27, 47, 0.55);
+      overflow: hidden;
+    }
+
+    .vibecoding-api-smoke>summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      list-style: none;
+      user-select: none;
+    }
+
+    .vibecoding-api-smoke>summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .vibecoding-api-smoke[open]>summary {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vibecoding-api-smoke-inner {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .vibecoding-api-smoke-hint {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .vibecoding-api-smoke-btn {
+      align-self: flex-start;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--accent);
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent2);
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+    }
+
+    .vibecoding-api-smoke-btn:hover:not(:disabled) {
+      background: rgba(59, 130, 246, 0.28);
+      border-color: var(--accent2);
+    }
+
+    .vibecoding-api-smoke-btn:disabled {
+      opacity: 0.55;
+      cursor: wait;
+    }
+
+    .vibecoding-api-smoke-out {
+      margin: 0;
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--muted2);
+      background: var(--surface2);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
     #integrations .fp-lbl-context {
       margin-top: 0;
     }
@@ -1712,6 +1794,14 @@
           <p class="project-text personal-link-vibecoding">
             <a href="https://vibecoding-ten-teal.vercel.app/" target="_blank" rel="noopener">vibecoding-ten-teal.vercel.app</a>
           </p>
+          <details class="vibecoding-api-smoke">
+            <summary class="vibecoding-api-test-summary">API smoke test (CORS)</summary>
+            <div class="vibecoding-api-smoke-inner">
+              <p class="vibecoding-api-smoke-hint vibecoding-api-test-hint"></p>
+              <button type="button" class="vibecoding-api-smoke-btn vibecoding-api-test-btn">Run test</button>
+              <pre class="vibecoding-api-smoke-out" id="vibecoding-api-smoke-out" aria-live="polite"></pre>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -1878,6 +1968,7 @@
   <script>
     const FALLBACK_LANG = 'en';
     const SUPPORTED_LANGS = ['en', 'es'];
+    const VIBECODING_API_EXECUTE = 'https://vibecoding-api-uvwl.onrender.com/api/ai/execute';
     const LANG_PROMPT_SEEN_KEY = 'lang_prompt_seen';
 
     const translations = {
@@ -1939,6 +2030,9 @@
         'personal.live.label': 'Live',
         'personal.realspend.body': 'Finance analytics dashboards; documented public HTTP API for integrations.',
         'personal.vibecoding.body': 'Web UI for LLM-assisted coding workflows: dashboards, prompt library, sandbox environment.',
+        'personal.vibecoding.apiTestSummary': 'API smoke test (CORS)',
+        'personal.vibecoding.apiTestHint': 'Sends a small POST to the public Render API from this page’s origin. JSON with success or a model reply means CORS is allowed.',
+        'personal.vibecoding.apiTestBtn': 'Run test',
         'personal.contabilio.body': 'Tax calculators and simulators for Argentina (monotributo, ganancias). In development.',
         'personal.contabilio.live': 'Coming soon',
         'contact.label': '// 04 — contact',
@@ -2008,6 +2102,9 @@
         'personal.live.label': 'En vivo',
         'personal.realspend.body': 'Paneles analíticos de finanzas; API HTTP pública documentada para integraciones.',
         'personal.vibecoding.body': 'UI web para flujos de código asistido por LLM: dashboards, biblioteca de prompts, entorno sandbox.',
+        'personal.vibecoding.apiTestSummary': 'Prueba rápida de API (CORS)',
+        'personal.vibecoding.apiTestHint': 'Envía un POST mínimo a la API pública en Render desde el origen de esta página. Si ves JSON con success o la respuesta del modelo, CORS está bien.',
+        'personal.vibecoding.apiTestBtn': 'Probar',
         'personal.contabilio.body': 'Calculadoras y simuladores impositivos para Argentina (monotributo, ganancias). En desarrollo.',
         'personal.contabilio.live': 'Próximamente'
       }
@@ -2068,6 +2165,9 @@
         { sel: '.personal-live-label', key: 'personal.live.label', all: true },
         { sel: '.personal-body-realspend', key: 'personal.realspend.body', html: true },
         { sel: '.personal-body-vibecoding', key: 'personal.vibecoding.body', html: true },
+        { sel: '.vibecoding-api-test-summary', key: 'personal.vibecoding.apiTestSummary' },
+        { sel: '.vibecoding-api-test-hint', key: 'personal.vibecoding.apiTestHint' },
+        { sel: '.vibecoding-api-test-btn', key: 'personal.vibecoding.apiTestBtn' },
         { sel: '.personal-body-contabilio', key: 'personal.contabilio.body', html: true },
         { sel: '.personal-body-contabilio-live', key: 'personal.contabilio.live' },
         { sel: '#experience-timeline .section-label', key: 'experience.label' },
@@ -2183,6 +2283,40 @@
 
       // Remove accidental duplicate consecutive dividers.
       document.querySelectorAll('hr.divider + hr.divider').forEach((el) => el.remove());
+
+      const vcBtn = document.querySelector('.vibecoding-api-test-btn');
+      const vcOut = document.getElementById('vibecoding-api-smoke-out');
+      if (vcBtn && vcOut) {
+        vcBtn.addEventListener('click', async () => {
+          vcBtn.disabled = true;
+          vcOut.textContent = '…';
+          const t0 = performance.now();
+          try {
+            const res = await fetch(VIBECODING_API_EXECUTE, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'X-Tenant': 'google'
+              },
+              body: JSON.stringify({ prompt: 'Reply with the single word: ok' })
+            });
+            const text = await res.text();
+            const ms = Math.round(performance.now() - t0);
+            let pretty = `HTTP ${res.status} (${ms} ms)\n\n`;
+            try {
+              pretty += JSON.stringify(JSON.parse(text), null, 2);
+            } catch {
+              pretty += text;
+            }
+            vcOut.textContent = pretty;
+          } catch (err) {
+            const msg = err && err.message ? err.message : String(err);
+            vcOut.textContent = `Error: ${msg}\n\n(Network or CORS; check the browser console.)`;
+          } finally {
+            vcBtn.disabled = false;
+          }
+        });
+      }
     });
 
     // Nav + fondo enlazado al scroll (auroras / blobs)
