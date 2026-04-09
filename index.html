@@ -995,6 +995,14 @@
       margin-bottom: 10px;
     }
 
+    .project-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin: -4px 0 8px;
+    }
+
     .project-title {
       font-size: 20px;
       font-weight: 600;
@@ -1015,6 +1023,15 @@
       color: var(--muted2);
       margin-bottom: 16px;
       line-height: 1.7;
+    }
+
+    #integrations .project-text ul.proof-bullets {
+      margin: 0 0 16px;
+      padding-left: 1.25em;
+    }
+
+    #integrations .project-text ul.proof-bullets li {
+      margin-bottom: 0.45em;
     }
 
     .project-text code {
@@ -1539,10 +1556,12 @@
         <div class="hero-label">Backend / Distributed Systems</div>
         <h1 class="hero-name">Thiago<br>Fernández</h1>
         <p class="hero-role">
-          <strong>Backend engineer.</strong> APIs, data models, authentication, integrations.<br>Production systems with active users.
+          <strong>Backend Developer.</strong> APIs and distributed systems using .NET and Node.js. Multi-tenant platforms
+          with legacy integrations and external services. Focus on performance, security and scalability. Experience with
+          Docker, Kubernetes, OAuth2, and SQL/NoSQL databases.
         </p>
         <p class="hero-tagline">
-          .NET · Node.js · Docker · Kubernetes<br>
+          .NET · ASP.NET Core · EF Core · React Native · Docker · OpenShift<br>
           Buenos Aires<span class="cursor"></span>
         </p>
         <div class="hero-actions">
@@ -1568,11 +1587,11 @@
         <div class="proof-body">
           <p class="proof-title">AGIP</p>
           <div class="proof-copy proof-copy-agip">
-            <p class="proof-lead">City tax agency portal: filings, payments, and internal workflows for residents and businesses.</p>
+            <p class="proof-lead">AGIP (City of Buenos Aires): tax current account, registry and related backend services.</p>
             <ul class="proof-bullets">
-              <li>Backend APIs and modules in a multi-tenant environment.</li>
-              <li>Standardized flows and integrations; reduction of manual operational steps.</li>
-              <li>ASP.NET Core, OpenAPI-first APIs, IBM/CTG integration with timeouts, structured logging, and retries.</li>
+              <li>.NET 5/6, ASP.NET Core, EF Core, SQL Server; MongoDB and DB2 in collection and legacy flows.</li>
+              <li>JWT auth in a sensitive, high-volume environment; Serilog for structured logging and incident diagnosis.</li>
+              <li>SQL, indexes and hot-endpoint tuning; Docker and OpenShift deployment with environment-based configuration.</li>
             </ul>
           </div>
         </div>
@@ -1582,11 +1601,11 @@
         <div class="proof-body">
           <p class="proof-title">Flexwork</p>
           <div class="proof-copy proof-copy-flex">
-            <p class="proof-lead">Hiring product for companies: structured workflows instead of a flat list of CVs.</p>
+            <p class="proof-lead">Flexwork Latam: multi-company hiring ATS — vacancies, applications and a Kanban-style pipeline.</p>
             <ul class="proof-bullets">
-              <li>Next.js UI; Node/Express APIs; Firebase Auth; ownership of backend modules and REST surface.</li>
-              <li>Modular REST endpoints and OAuth for third-party integrations.</li>
-              <li>Next.js, TypeScript, Node/Express, Firebase.</li>
+              <li>ASP.NET Core REST APIs, EF Core and SQL Server; query optimization on high-use endpoints.</li>
+              <li>JWT authentication and multitenancy to isolate data per organization.</li>
+              <li>Role-based access aligned to each company’s recruiting workflow.</li>
             </ul>
           </div>
         </div>
@@ -1596,11 +1615,11 @@
         <div class="proof-body">
           <p class="proof-title">Faristol</p>
           <div class="proof-copy proof-copy-far">
-            <p class="proof-lead">Consumer mobile app (events, music). Authentication, session handling, and integration with backend APIs.</p>
+            <p class="proof-lead">Faristol: sheet-music product — ASP.NET Core API plus React Native client.</p>
             <ul class="proof-bullets">
-              <li>React Native / Expo: OAuth, deep links, session handling against HTTP APIs.</li>
-              <li>Integration between hosted sign-in and native client.</li>
-              <li>Android and iOS builds; Gradle, ADB, environment configuration for releases.</li>
+              <li>JWT auth (sign-up, verification, email OTP); filtered search, favourites, PDFs on S3.</li>
+              <li>PayPal and in-app subscriptions with webhooks; xUnit and API tests for auth and billing.</li>
+              <li>React Native: sessions/tokens, navigation, on-device testing for releases.</li>
             </ul>
           </div>
         </div>
@@ -1624,11 +1643,11 @@
         <div class="proof-body">
           <p class="proof-title">OurClub</p>
           <div class="proof-copy proof-copy-ourclub">
-            <p class="proof-lead">Member portal for sports clubs: sign-up, bookings, payments, and notices.</p>
+            <p class="proof-lead">OurClub: web platform and mobile app for clubs — SSO, events, quotas and member flows.</p>
             <ul class="proof-bullets">
-              <li>Backend and web integration: .NET 6 middleware, PostgreSQL, coexistence with MVC/Web API on .NET Framework.</li>
-              <li>Per-club configuration (branding, rules) on a shared codebase.</li>
-              <li>Dapper and direct SQL on high-throughput paths; EF Core elsewhere; JWT/OAuth SSO.</li>
+              <li>Web: .NET Framework portal plus ASP.NET Core (.NET 6) SSO/APIs; PostgreSQL; EF Core + Dapper where SQL control matters.</li>
+              <li>Central auth: JWT access/refresh, Google sign-in, multi-club configuration; same-email identity selection.</li>
+              <li>Mobile: Expo / React Native, event APIs (ASP.NET Core, Dapper), .NET 6 middleware, QR and server-side PDFs.</li>
             </ul>
           </div>
         </div>
@@ -1654,27 +1673,29 @@
         </div>
         <div class="project-body">
           <p class="project-number">// freelance 01</p>
-          <h3 class="project-title">OurClub — Members web (bookings &amp; payments)</h3>
+          <p class="project-date club-web-date fade-up">01/2023</p>
+          <h3 class="project-title club-web-title">OurClub — Plataforma web y gestión (clubes / socios)</h3>
           <p class="project-section-label fp-lbl-context">Context</p>
           <p class="project-text club-fp-context">
-            Subscription product for sports clubs: members, payments, notices, event/ticketing. Pre-existing .NET
-            deployment; scope was additional self-service and APIs without a full platform replacement.
+            OurClub freelance: sports clubs — member web experience and centralized SSO on an existing .NET estate.
           </p>
           <p class="project-section-label fp-lbl-scope">Scope</p>
-          <p class="project-text club-fp-scope">
-            Members web and backend integration: multi-tenant configuration per club (branding, menus, digital card), SSO,
-            .NET 6 middleware with versioned REST and Swagger. Integration with Web API, MVC backoffice, and ASP.NET on
-            .NET Framework. Events, ticketing, and turnstile-oriented flows in a separate ASP.NET Core API.
-          </p>
+          <div class="project-text club-fp-scope">
+            <ul class="proof-bullets">
+              <li>Evolution of the ASP.NET stack: .NET Framework member portal and new ASP.NET Core (.NET 6) SSO/API services.</li>
+              <li>PostgreSQL; EF Core plus targeted Dapper for fine-grained SQL control.</li>
+              <li>Centralized authentication: JWT access/refresh and Google sign-in; per-club configuration (multi-tenant).</li>
+              <li>Real-world cases (e.g. multiple accounts with the same email → identity selection before login).</li>
+              <li>Serilog/NLog observability; Swagger documentation; xUnit and Moq unit tests.</li>
+            </ul>
+          </div>
           <p class="project-section-label fp-lbl-impact">Outcomes</p>
           <p class="project-text club-fp-impact">
-            Self-service and payment modules integrated with the existing system. New capabilities exposed through versioned,
-            documented APIs. Dapper and direct SQL on high-throughput paths; EF Core where the domain model applied.
+            Self-service and integrations delivered without a full rip-and-replace of the legacy core.
           </p>
           <p class="project-section-label fp-lbl-stack">Stack</p>
           <p class="project-text club-fp-stack">
-            PostgreSQL · .NET 6 · Dapper on high-throughput paths · EF Core · Npgsql · ASP.NET Core · Web API / MVC (.NET
-            Framework) · JWT/OAuth SSO · API keys between services.
+            PostgreSQL · .NET 6 · ASP.NET Core · EF Core · Dapper · Npgsql · Web API / MVC (.NET Framework) · JWT · Google SSO · Serilog/NLog · Swagger · xUnit · Moq · API keys between services
           </p>
           <div class="project-shots">
             <a class="project-shot" href="./assets/ourclub/Captura%20de%20pantalla%202026-03-31%20150826.png" target="_blank" rel="noopener">
@@ -1706,30 +1727,28 @@
         </div>
         <div class="project-body">
           <p class="project-number">// freelance 02</p>
-          <h3 class="project-title oc-mobile-title">OurClub — Fan app &amp; access control</h3>
+          <p class="project-date oc-mobile-date fade-up">01/2023</p>
+          <h3 class="project-title oc-mobile-title">OurClub — App móvil (socios / eventos y cupos)</h3>
           <p class="project-section-label fp-lbl-context">Context</p>
           <p class="project-text oc-fp-context">
-            Two mobile clients on one product: member app (digital card, content, SSO) and staff app for venue access
-            control. Variable connectivity at venues; offline-capable access validation and synchronization.
+            Mobile app for members (Expo / React Native) consuming .NET event APIs and middleware.
           </p>
           <p class="project-section-label fp-lbl-scope">Scope</p>
-          <p class="project-text oc-fp-scope">
-            <strong>Fan:</strong> Expo / React Native app — SSO via <code>expo-auth-session</code> and deep links, QR
-            membership card, club-specific theming, EAS builds for Android and iOS.
-            <strong>Access:</strong> Same stack — <code>expo-camera</code> to scan codes, validation through the .NET
-            middleware with API keys; local <code>expo-sqlite</code> rosters per event, entry log, and sync when the network
-            returns (<code>NetInfo</code>).
-          </p>
+          <div class="project-text oc-fp-scope">
+            <ul class="proof-bullets">
+              <li>React Native with Expo for end users (members); REST with Axios; React Navigation.</li>
+              <li>Integration with .NET: event APIs (ASP.NET Core, Dapper, PostgreSQL) and .NET 6 middleware to centralize operations.</li>
+              <li>Events and quotas: QR generation/reading and PDF generation from .NET services.</li>
+              <li>UX and performance improvements on real devices; Expo/EAS builds and releases.</li>
+            </ul>
+          </div>
           <p class="project-section-label fp-lbl-impact">Outcomes</p>
           <p class="project-text oc-fp-impact">
-            Access validation with intermittent connectivity; SSO consistent with the web product. SQLite data scoped per
-            event; shared navigation and authentication across both apps.
+            Fan-facing flows aligned with the same backend contracts as the web and SSO stack.
           </p>
           <p class="project-section-label fp-lbl-stack">Stack</p>
           <p class="project-text oc-fp-stack">
-            Expo ~54 · React Native 19 · React Navigation · <code>expo-auth-session</code> · deep links ·
-            <code>expo-camera</code> · Axios → middleware · <code>expo-sqlite</code> · NetInfo · Paper / Material-style UI ·
-            EAS.
+            Expo ~54 · React Native · React Navigation · Axios · ASP.NET Core · Dapper · PostgreSQL · .NET 6 middleware · QR · PDF · EAS
           </p>
           <div class="project-shots">
             <a class="project-shot" href="./assets/appfanyacceso/unnamed%20(2).webp" target="_blank" rel="noopener">
@@ -1890,17 +1909,17 @@
           <span class="timeline-period exp-av-period">03/2025 — Present</span>
         </div>
         <p class="timeline-role exp-av-role">Backend Developer</p>
-        <p class="timeline-desc exp-av-desc">
-          Backend development for multi-tenant tax management platforms with ASP.NET Core and integrations with
-          IBM/CTG and external APIs.
-        </p>
         <div class="timeline-achievements">
-          <p class="timeline-achievement exp-av-a1">Designed and implemented REST APIs with OpenAPI contract-first in a
-            multi-tenant environment.</p>
-          <p class="timeline-achievement exp-av-a2">Implemented token-based auth, in-memory caching and Gzip to improve latency and
-            reduce load.</p>
-          <p class="timeline-achievement exp-av-a3">Containerised services with Docker and deployed to Kubernetes / OpenShift
-            using environment-based configuration.</p>
+          <p class="timeline-achievement exp-av-a1">Development and maintenance of backend APIs for AGIP (current tax
+            account, taxpayer registry and related services), keeping compatibility with portals and consumers.</p>
+          <p class="timeline-achievement exp-av-a2">Implementation on .NET 5/6 with ASP.NET Core, EF Core and SQL Server;
+            integrations with MongoDB and DB2 in collection flows and legacy systems.</p>
+          <p class="timeline-achievement exp-av-a3">Design and implementation of authentication and authorization with JWT
+            in a sensitive-data, high-volume environment.</p>
+          <p class="timeline-achievement exp-av-a4">Structured logging and traceability with Serilog for incident diagnosis
+            and tracking of critical operations.</p>
+          <p class="timeline-achievement exp-av-a5">Performance work on SQL queries, indexes and high-traffic endpoints,
+            reducing response times in critical scenarios.</p>
         </div>
       </div>
 
@@ -1911,13 +1930,21 @@
           <span class="timeline-period">02/2024 — 02/2025</span>
         </div>
         <p class="timeline-role exp-far-role">Mobile Developer</p>
-        <p class="timeline-desc exp-far-desc">
-          React Native / Expo: authentication, session handling, and consumption of backend HTTP APIs.
-        </p>
         <div class="timeline-achievements">
-          <p class="timeline-achievement exp-far-a1">OAuth and deep linking between web sign-in and native sessions.</p>
-          <p class="timeline-achievement exp-far-a2">Navigation and state management for session lifecycle across flows.</p>
-          <p class="timeline-achievement exp-far-a3">Gradle, ADB, and on-device testing prior to store releases.</p>
+          <p class="timeline-achievement exp-far-a1">REST API development with ASP.NET Core for a React Native mobile
+            application.</p>
+          <p class="timeline-achievement exp-far-a2">Authentication and authorization with JWT, including sign-up,
+            verification and account recovery (email OTP).</p>
+          <p class="timeline-achievement exp-far-a3">Filtered search, favourites and PDF viewing/download with file storage
+            on S3.</p>
+          <p class="timeline-achievement exp-far-a4">PayPal integration and in-app subscription sync via webhooks, keeping
+            store and backend consistent.</p>
+          <p class="timeline-achievement exp-far-a5">React Native client: API integration, session/tokens, navigation and
+            testing on real devices.</p>
+          <p class="timeline-achievement exp-far-a6">Automated backend tests (xUnit and API integration) to reduce
+            regressions in auth and subscriptions.</p>
+          <p class="timeline-achievement exp-far-a7">Persistence with EF Core and SQL; query tuning on high-frequency
+            endpoints.</p>
         </div>
       </div>
 
@@ -1928,14 +1955,10 @@
           <span class="timeline-period">11/2022 — 10/2023</span>
         </div>
         <p class="timeline-role exp-flex-role">Full Stack Developer</p>
-        <p class="timeline-desc exp-flex-desc">
-          Next.js front end; Node/Express APIs; Firebase Auth; modular REST; third-party OAuth integrations.
-        </p>
         <div class="timeline-achievements">
-          <p class="timeline-achievement exp-flex-a1">Next.js dynamic routes and lazy loading to reduce initial JavaScript and time to first meaningful paint.</p>
-          <p class="timeline-achievement exp-flex-a2">Created modular REST APIs and integrated external services via OAuth flows.
-          </p>
-          <p class="timeline-achievement exp-flex-a3">Implemented auth and role-based access using Firebase Auth.</p>
+          <p class="timeline-achievement exp-flex-a1">Multi-company hiring ATS SaaS: vacancies, applications and a Kanban-style pipeline with per-organization roles.</p>
+          <p class="timeline-achievement exp-flex-a2">ASP.NET Core backend with REST APIs, EF Core and SQL Server; query optimization on endpoints.</p>
+          <p class="timeline-achievement exp-flex-a3">JWT authentication and multitenancy to isolate data per company.</p>
         </div>
       </div>
     </div>
@@ -1983,7 +2006,7 @@
 
   <!-- ============ FOOTER ============ -->
   <footer>
-    <p class="footer-text">Thiago Fernández — Backend engineer · Buenos Aires</p>
+    <p class="footer-text">Thiago Fernández — Backend Developer · Buenos Aires</p>
   </footer>
 
   <div id="lang-suggestion" class="lang-suggestion" hidden>
@@ -2016,18 +2039,18 @@
         'nav.experience': './experience',
         'nav.contact': './contact',
         'hero.label': 'Backend / Distributed Systems',
-        'hero.role': '<strong>Backend engineer.</strong> APIs, data models, authentication, integrations.<br>Production systems with active users.',
-        'hero.tagline': '.NET · Node.js · Docker · Kubernetes<br>Buenos Aires<span class="cursor"></span>',
+        'hero.role': '<strong>Backend Developer.</strong> APIs and distributed systems using .NET and Node.js. Multi-tenant platforms with legacy integrations and external services. Focus on performance, security and scalability. Experience with Docker, Kubernetes, OAuth2, and SQL/NoSQL databases.',
+        'hero.tagline': '.NET · ASP.NET Core · EF Core · React Native · Docker · OpenShift<br>Buenos Aires<span class="cursor"></span>',
         'hero.cta.primary': 'View proof of work',
         'hero.cta.secondary': 'View freelance projects',
         'proof.label': '// intro — proof of work',
         'proof.title': 'Selected production work',
         'proof.deck': 'Systems with substantial backend work: APIs, integrations, persistence, and releases under production constraints. Some roles included UI or mobile delivery.',
-        'proof.copy.agip': '<p class="proof-lead">City tax agency portal: filings, payments, and internal workflows for residents and businesses.</p><ul class="proof-bullets"><li>Backend APIs and modules in a multi-tenant environment.</li><li>Standardized flows and integrations; reduction of manual operational steps.</li><li>ASP.NET Core, OpenAPI-first APIs, IBM/CTG integration with timeouts, structured logging, and retries.</li></ul>',
-        'proof.copy.flex': '<p class="proof-lead">Hiring product for companies: structured workflows instead of a flat list of CVs.</p><ul class="proof-bullets"><li>Next.js UI; Node/Express APIs; Firebase Auth; backend modules and REST surface.</li><li>Modular REST endpoints and OAuth for third-party integrations.</li><li>Next.js, TypeScript, Node/Express, Firebase.</li></ul>',
-        'proof.copy.far': '<p class="proof-lead">Consumer mobile app (events, music). Authentication, session handling, and integration with backend APIs.</p><ul class="proof-bullets"><li>React Native / Expo: OAuth, deep links, session handling against HTTP APIs.</li><li>Integration between hosted sign-in and native client.</li><li>Android and iOS builds; Gradle, ADB, environment configuration for releases.</li></ul>',
+        'proof.copy.agip': '<p class="proof-lead">AGIP (City of Buenos Aires): tax current account, registry and related backend services.</p><ul class="proof-bullets"><li>.NET 5/6, ASP.NET Core, EF Core, SQL Server; MongoDB and DB2 in collection and legacy flows.</li><li>JWT auth in a sensitive, high-volume environment; Serilog for structured logging and incident diagnosis.</li><li>SQL, indexes and hot-endpoint tuning; Docker and OpenShift deployment with environment-based configuration.</li></ul>',
+        'proof.copy.flex': '<p class="proof-lead">Flexwork Latam: multi-company hiring ATS — vacancies, applications and a Kanban-style pipeline.</p><ul class="proof-bullets"><li>ASP.NET Core REST APIs, EF Core and SQL Server; query optimization on high-use endpoints.</li><li>JWT authentication and multitenancy to isolate data per organization.</li><li>Role-based access aligned to each company’s recruiting workflow.</li></ul>',
+        'proof.copy.far': '<p class="proof-lead">Faristol: sheet-music product — ASP.NET Core API plus React Native client.</p><ul class="proof-bullets"><li>JWT auth (sign-up, verification, email OTP); filtered search, favourites, PDFs on S3.</li><li>PayPal and in-app subscriptions with webhooks; xUnit and API tests for auth and billing.</li><li>React Native: sessions/tokens, navigation, on-device testing for releases.</li></ul>',
         'proof.copy.gestion': '<p class="proof-lead">Back-office for a broker: policies, clients, and day-to-day operations in one place.</p><ul class="proof-bullets"><li>Administration screens, validations, and data flows aligned to business rules.</li><li>Centralized operational data and status tracking.</li><li>.NET web stack, server-rendered UI, grids and forms bound to backend services.</li></ul>',
-        'proof.copy.ourclub': '<p class="proof-lead">Member portal for sports clubs: sign-up, bookings, payments, and notices.</p><ul class="proof-bullets"><li>Backend and web integration: .NET 6 middleware, PostgreSQL, coexistence with MVC/Web API on .NET Framework.</li><li>Per-club configuration (branding, rules) on a shared codebase.</li><li>Dapper and direct SQL on high-throughput paths; EF Core elsewhere; JWT/OAuth SSO.</li></ul>',
+        'proof.copy.ourclub': '<p class="proof-lead">OurClub: web platform and mobile app for clubs — SSO, events, quotas and member flows.</p><ul class="proof-bullets"><li>Web: .NET Framework portal plus ASP.NET Core (.NET 6) SSO/APIs; PostgreSQL; EF Core + Dapper where SQL control matters.</li><li>Central auth: JWT access/refresh, Google sign-in, multi-club configuration; same-email identity selection.</li><li>Mobile: Expo / React Native, event APIs (ASP.NET Core, Dapper), .NET 6 middleware, QR and server-side PDFs.</li></ul>',
         'integrations.label': '// 02 — freelance projects',
         'integrations.title': 'Freelance projects<span> delivered for clients.</span>',
         'integrations.deck': 'Freelance delivery on a single product line: .NET middleware, PostgreSQL, web surface, and mobile clients on one backend.',
@@ -2035,33 +2058,39 @@
         'freelance.block.scope': 'Scope',
         'freelance.block.impact': 'Outcomes',
         'freelance.block.stack': 'Stack',
-        'oc.mobile.title': 'OurClub — Fan app &amp; access control',
-        'club.fp.context': 'Subscription product for sports clubs: members, payments, notices, event/ticketing. Pre-existing .NET deployment; scope was additional self-service and APIs without a full platform replacement.',
-        'club.fp.scope': 'Members web and backend integration: multi-tenant configuration per club (branding, menus, digital card), SSO, .NET 6 middleware with versioned REST and Swagger. Integration with Web API, MVC backoffice, and ASP.NET on .NET Framework. Events, ticketing, and turnstile-oriented flows in a separate ASP.NET Core API.',
-        'club.fp.impact': 'Self-service and payment modules integrated with the existing system. New capabilities exposed through versioned, documented APIs. Dapper and direct SQL on high-throughput paths; EF Core where the domain model applied.',
-        'club.fp.stack': 'PostgreSQL · .NET 6 · Dapper on high-throughput paths · EF Core · Npgsql · ASP.NET Core · Web API / MVC (.NET Framework) · JWT/OAuth SSO · API keys between services.',
-        'oc.fp.context': 'Two mobile clients on one product: member app (digital card, content, SSO) and staff app for venue access control. Variable connectivity at venues; offline-capable access validation and synchronization.',
-        'oc.fp.scope': '<strong>Fan:</strong> Expo / React Native app — SSO via <code>expo-auth-session</code> and deep links, QR membership card, club-specific theming, EAS builds for Android and iOS. <strong>Access:</strong> Same stack — <code>expo-camera</code> to scan codes, validation through the .NET middleware with API keys; local <code>expo-sqlite</code> rosters per event, entry log, and sync when the network returns (<code>NetInfo</code>).',
-        'oc.fp.impact': 'Access validation with intermittent connectivity; SSO consistent with the web product. SQLite data scoped per event; shared navigation and authentication across both apps.',
-        'oc.fp.stack': 'Expo ~54 · React Native 19 · React Navigation · <code>expo-auth-session</code> · deep links · <code>expo-camera</code> · Axios → middleware · <code>expo-sqlite</code> · NetInfo · Paper / Material-style UI · EAS.',
+        'club.web.title': 'OurClub — Web platform &amp; member management (clubs)',
+        'club.web.date': '01/2023',
+        'oc.mobile.date': '01/2023',
+        'oc.mobile.title': 'OurClub — Mobile app (members / events &amp; quotas)',
+        'club.fp.context': 'OurClub freelance: sports clubs — member web experience and centralized SSO on an existing .NET estate.',
+        'club.fp.scope': '<ul class="proof-bullets"><li>Evolution of the ASP.NET stack: .NET Framework member portal and new ASP.NET Core (.NET 6) SSO/API services.</li><li>PostgreSQL; EF Core plus targeted Dapper for fine-grained SQL control.</li><li>Centralized authentication: JWT access/refresh and Google sign-in; per-club configuration (multi-tenant).</li><li>Real-world cases (e.g. multiple accounts with the same email → identity selection before login).</li><li>Serilog/NLog observability; Swagger documentation; xUnit and Moq unit tests.</li></ul>',
+        'club.fp.impact': 'Self-service and integrations delivered without a full rip-and-replace of the legacy core.',
+        'club.fp.stack': 'PostgreSQL · .NET 6 · ASP.NET Core · EF Core · Dapper · Npgsql · Web API / MVC (.NET Framework) · JWT · Google SSO · Serilog/NLog · Swagger · xUnit · Moq · API keys between services',
+        'oc.fp.context': 'Mobile app for members (Expo / React Native) consuming .NET event APIs and middleware.',
+        'oc.fp.scope': '<ul class="proof-bullets"><li>React Native with Expo for end users (members); REST with Axios; React Navigation.</li><li>Integration with .NET: event APIs (ASP.NET Core, Dapper, PostgreSQL) and .NET 6 middleware to centralize operations.</li><li>Events and quotas: QR generation/reading and PDF generation from .NET services.</li><li>UX and performance improvements on real devices; Expo/EAS builds and releases.</li></ul>',
+        'oc.fp.impact': 'Fan-facing flows aligned with the same backend contracts as the web and SSO stack.',
+        'oc.fp.stack': 'Expo ~54 · React Native · React Navigation · Axios · ASP.NET Core · Dapper · PostgreSQL · .NET 6 middleware · QR · PDF · EAS',
         'experience.label': '// 03 — experience (condensed)',
         'experience.title': 'Experience',
-        'exp.av.desc': 'Backend development for multi-tenant tax management platforms with ASP.NET Core and integrations with IBM/CTG and external APIs.',
         'exp.av.period': '03/2025 — Present',
         'exp.av.role': 'Backend Developer',
-        'exp.av.a1': 'Designed and implemented REST APIs with OpenAPI contract-first in a multi-tenant environment.',
-        'exp.av.a2': 'Implemented token-based auth, in-memory caching and Gzip to improve latency and reduce load.',
-        'exp.av.a3': 'Containerised services with Docker and deployed to Kubernetes / OpenShift using environment-based configuration.',
-        'exp.far.desc': 'React Native / Expo: authentication, session handling, and consumption of backend HTTP APIs.',
+        'exp.av.a1': 'Development and maintenance of backend APIs for AGIP (current tax account, taxpayer registry and related services), keeping compatibility with portals and consumers.',
+        'exp.av.a2': 'Implementation on .NET 5/6 with ASP.NET Core, EF Core and SQL Server; integrations with MongoDB and DB2 in collection flows and legacy systems.',
+        'exp.av.a3': 'Design and implementation of authentication and authorization with JWT in a sensitive-data, high-volume environment.',
+        'exp.av.a4': 'Structured logging and traceability with Serilog for incident diagnosis and tracking of critical operations.',
+        'exp.av.a5': 'Performance work on SQL queries, indexes and high-traffic endpoints, reducing response times in critical scenarios.',
         'exp.far.role': 'Mobile Developer',
-        'exp.far.a1': 'OAuth and deep linking between web sign-in and native sessions.',
-        'exp.far.a2': 'Navigation and state management for session lifecycle across flows.',
-        'exp.far.a3': 'Gradle, ADB, and on-device testing prior to store releases.',
-        'exp.flex.desc': 'Next.js front end; Node/Express APIs; Firebase Auth; modular REST; third-party OAuth integrations.',
+        'exp.far.a1': 'REST API development with ASP.NET Core for a React Native mobile application.',
+        'exp.far.a2': 'Authentication and authorization with JWT, including sign-up, verification and account recovery (email OTP).',
+        'exp.far.a3': 'Filtered search, favourites and PDF viewing/download with file storage on S3.',
+        'exp.far.a4': 'PayPal integration and in-app subscription sync via webhooks, keeping store and backend consistent.',
+        'exp.far.a5': 'React Native client: API integration, session/tokens, navigation and testing on real devices.',
+        'exp.far.a6': 'Automated backend tests (xUnit and API integration) to reduce regressions in auth and subscriptions.',
+        'exp.far.a7': 'Persistence with EF Core and SQL; query tuning on high-frequency endpoints.',
         'exp.flex.role': 'Full Stack Developer',
-        'exp.flex.a1': 'Next.js dynamic routes and lazy loading to reduce initial JavaScript and time to first meaningful paint.',
-        'exp.flex.a2': 'Created modular REST APIs and integrated external services via OAuth flows.',
-        'exp.flex.a3': 'Implemented auth and role-based access using Firebase Auth.',
+        'exp.flex.a1': 'Multi-company hiring ATS SaaS: vacancies, applications and a Kanban-style pipeline with per-organization roles.',
+        'exp.flex.a2': 'ASP.NET Core backend with REST APIs, EF Core and SQL Server; query optimization on endpoints.',
+        'exp.flex.a3': 'JWT authentication and multitenancy to isolate data per company.',
         'personal.label': '// 01 — personal projects',
         'personal.title': 'Personal projects',
         'personal.summary.label': 'Summary',
@@ -2087,8 +2116,8 @@
         'nav.experience': './experiencia',
         'nav.contact': './contacto',
         'hero.label': 'Backend / Sistemas Distribuidos',
-        'hero.role': '<strong>Ingeniero backend.</strong> APIs, modelo de datos, autenticación, integraciones.<br>Sistemas en producción con usuarios activos.',
-        'hero.tagline': '.NET · Node.js · Docker · Kubernetes<br>Buenos Aires<span class="cursor"></span>',
+        'hero.role': '<strong>Backend Developer</strong> con experiencia en desarrollo de APIs y sistemas distribuidos utilizando .NET y Node.js. Actualmente trabajando en plataformas multi-tenant con integraciones a sistemas legacy y servicios externos. Enfoque en rendimiento, seguridad y escalabilidad. Experiencia con Docker, Kubernetes, OAuth2 y bases de datos SQL y NoSQL.',
+        'hero.tagline': '.NET · ASP.NET Core · EF Core · React Native · Docker · OpenShift<br>Buenos Aires<span class="cursor"></span>',
         'hero.cta.primary': 'Ver evidencia de trabajo',
         'hero.cta.secondary': 'Ver proyectos freelance',
         'personal.label': '// 01 — proyectos personales',
@@ -2100,11 +2129,11 @@
         'proof.label': '// intro — evidencia visual',
         'proof.title': 'Trabajo seleccionado en producción',
         'proof.deck': 'Sistemas con trabajo backend relevante: APIs, integraciones, persistencia y entregas bajo restricciones de producción. Algunos roles incluyeron entrega de UI o mobile.',
-        'proof.copy.agip': '<p class="proof-lead">Portal de la agencia tributaria de la ciudad: declaraciones, pagos y trabajo interno para contribuyentes.</p><ul class="proof-bullets"><li>APIs y módulos backend en entorno multi-tenant.</li><li>Flujos e integraciones estandarizados; reducción de pasos operativos manuales.</li><li>ASP.NET Core, APIs contract-first OpenAPI, integración IBM/CTG con timeouts, logging estructurado y reintentos.</li></ul>',
-        'proof.copy.flex': '<p class="proof-lead">Producto de contratación para empresas: flujos estructurados en lugar de un listado plano de CVs.</p><ul class="proof-bullets"><li>UI Next.js; APIs Node/Express; Firebase Auth; módulos backend y superficie REST.</li><li>Endpoints REST modulares y OAuth para integraciones de terceros.</li><li>Next.js, TypeScript, Node/Express, Firebase.</li></ul>',
-        'proof.copy.far': '<p class="proof-lead">App mobile de consumo (eventos, música). Autenticación, sesiones e integración con APIs backend.</p><ul class="proof-bullets"><li>React Native / Expo: OAuth, deep links, manejo de sesión sobre APIs HTTP.</li><li>Integración entre sign-in alojado y cliente nativo.</li><li>Builds Android e iOS; Gradle, ADB, configuración de entornos para releases.</li></ul>',
+        'proof.copy.agip': '<p class="proof-lead">AGIP (Ciudad de Buenos Aires): cuenta corriente tributaria, padrón y servicios backend asociados.</p><ul class="proof-bullets"><li>.NET 5/6, ASP.NET Core, EF Core y SQL Server; integraciones con MongoDB y DB2 en flujos de recaudación y sistemas legacy.</li><li>Autenticación con JWT en entorno de datos sensibles y alto volumen; Serilog para logging estructurado y diagnóstico de incidentes.</li><li>Optimización de consultas SQL, índices y endpoints de alto uso; Docker y despliegue en OpenShift con configuración por entorno.</li></ul>',
+        'proof.copy.flex': '<p class="proof-lead">Flexwork Latam: ATS SaaS multiempresa — vacantes, postulaciones y pipeline tipo Kanban.</p><ul class="proof-bullets"><li>Backend ASP.NET Core con APIs REST, EF Core y SQL Server; optimización de consultas en endpoints.</li><li>Autenticación con JWT y multitenancy para aislar datos por empresa.</li><li>Roles por organización alineados al proceso de reclutamiento.</li></ul>',
+        'proof.copy.far': '<p class="proof-lead">Faristol: producto de partituras — API ASP.NET Core y cliente React Native.</p><ul class="proof-bullets"><li>JWT (registro, verificación, OTP por correo); búsquedas filtradas, favoritos y PDFs con almacenamiento en S3.</li><li>PayPal y suscripciones in-app con webhooks; pruebas xUnit e integración sobre API.</li><li>React Native: sesión/tokens, navegación y pruebas en dispositivos reales.</li></ul>',
         'proof.copy.gestion': '<p class="proof-lead">Back-office de una corredora: pólizas, clientes y tareas del día a día en un solo lugar.</p><ul class="proof-bullets"><li>Pantallas de administración, validaciones y flujos de datos alineados a reglas de negocio.</li><li>Datos operativos y seguimiento de estado centralizados.</li><li>Stack web .NET, UI renderizada en servidor, grillas y formularios enlazados a servicios backend.</li></ul>',
-        'proof.copy.ourclub': '<p class="proof-lead">Portal de socios para clubes deportivos: altas, reservas, pagos y avisos.</p><ul class="proof-bullets"><li>Integración backend y web: middleware .NET 6, PostgreSQL, convivencia con MVC/Web API en .NET Framework.</li><li>Configuración por club (marca, reglas) sobre un mismo código base.</li><li>Dapper y SQL directo en rutas de alto rendimiento; EF Core en el resto; SSO JWT/OAuth.</li></ul>',
+        'proof.copy.ourclub': '<p class="proof-lead">OurClub: plataforma web y app móvil para clubes — SSO, eventos, cupos y flujos de socios.</p><ul class="proof-bullets"><li>Web: portal .NET Framework y servicios ASP.NET Core (.NET 6) SSO/APIs; PostgreSQL; EF Core y Dapper donde importa el control del SQL.</li><li>Auth central: JWT access/refresh, Google, configuración multi-club; selección de identidad con mismo correo.</li><li>Mobile: Expo/React Native, APIs de eventos (ASP.NET Core, Dapper), middleware .NET 6, QR y PDFs en servidor.</li></ul>',
         'integrations.label': '// 02 — proyectos freelance',
         'integrations.title': 'Proyectos freelance<span> entregados a clientes.</span>',
         'integrations.deck': 'Entrega freelance sobre una línea de producto: middleware .NET, PostgreSQL, superficie web y clientes mobile sobre un mismo backend.',
@@ -2112,33 +2141,39 @@
         'freelance.block.scope': 'Alcance',
         'freelance.block.impact': 'Resultados',
         'freelance.block.stack': 'Stack',
-        'oc.mobile.title': 'OurClub — App de socio y control de acceso',
-        'club.fp.context': 'Producto por suscripción para clubes deportivos: socios, pagos, avisos, eventos/ticketing. Despliegue .NET preexistente; el alcance sumó autogestión y APIs sin reemplazo completo de la plataforma.',
-        'club.fp.scope': 'Web de socios e integración backend: configuración multi-tenant por club (marca, menús, carnet digital), SSO, middleware .NET 6 con REST versionado y Swagger. Integración con Web API, backoffice MVC y ASP.NET en .NET Framework. Eventos, ticketing y flujos orientados a molinetes en una API ASP.NET Core separada.',
-        'club.fp.impact': 'Módulos de autogestión y pagos integrados al sistema existente. Nuevas capacidades expuestas vía APIs versionadas y documentadas. Dapper y SQL directo en rutas de alto rendimiento; EF Core donde aplica el modelo de dominio.',
-        'club.fp.stack': 'PostgreSQL · .NET 6 · Dapper en rutas de alto rendimiento · EF Core · Npgsql · ASP.NET Core · Web API / MVC (.NET Framework) · JWT/OAuth SSO · API keys entre servicios.',
-        'oc.fp.context': 'Dos clientes mobile sobre un producto: app de socio (carnet digital, contenido, SSO) y app operativa para control de acceso en sedes. Conectividad variable en sedes; validación de acceso con soporte offline y sincronización.',
-        'oc.fp.scope': '<strong>Fan:</strong> app Expo/React Native — SSO con <code>expo-auth-session</code> y deep links, carnet QR, theming por club, builds EAS para Android e iOS. <strong>Accesos:</strong> mismo stack — <code>expo-camera</code> para leer códigos, validación contra el middleware .NET con API keys; <code>expo-sqlite</code> con padrón por evento, historial de ingresos y sincronización cuando vuelve la red (<code>NetInfo</code>).',
-        'oc.fp.impact': 'Validación de acceso con conectividad intermitente; SSO alineado con el producto web. Datos SQLite acotados por evento; navegación y autenticación compartidas entre ambas apps.',
-        'oc.fp.stack': 'Expo ~54 · React Native 19 · React Navigation · <code>expo-auth-session</code> · deep links · <code>expo-camera</code> · Axios → middleware · <code>expo-sqlite</code> · NetInfo · Paper / UI estilo Material · EAS.',
+        'club.web.title': 'OurClub — Plataforma web y gestión (clubes / socios)',
+        'club.web.date': '01/2023',
+        'oc.mobile.date': '01/2023',
+        'oc.mobile.title': 'OurClub — App móvil (socios / eventos y cupos)',
+        'club.fp.context': 'Freelance OurClub: clubes deportivos — experiencia web de socios y SSO centralizado sobre un ecosistema .NET existente.',
+        'club.fp.scope': '<ul class="proof-bullets"><li>Evolución de plataforma ASP.NET: portal de socios en .NET Framework y nuevos servicios en ASP.NET Core (.NET 6) para SSO y APIs.</li><li>Base de datos PostgreSQL; uso de EF Core y Dapper en consultas puntuales para mayor control del SQL.</li><li>Implementación de autenticación centralizada con JWT (access/refresh) e integración con Google, con manejo de configuración y acceso por club (multi-tenant).</li><li>Resolución de casos reales de negocio (p. ej. múltiples cuentas con el mismo correo → selección de identidad antes del login).</li><li>Logging y observabilidad con Serilog/NLog, documentación con Swagger y pruebas unitarias con xUnit y Moq.</li></ul>',
+        'club.fp.impact': 'Autogestión e integraciones sin reemplazo completo del núcleo legacy de un solo golpe.',
+        'club.fp.stack': 'PostgreSQL · .NET 6 · ASP.NET Core · EF Core · Dapper · Npgsql · Web API / MVC (.NET Framework) · JWT · Google SSO · Serilog/NLog · Swagger · xUnit · Moq · API keys entre servicios',
+        'oc.fp.context': 'App móvil para socios (Expo / React Native) consumiendo APIs de eventos y middleware .NET.',
+        'oc.fp.scope': '<ul class="proof-bullets"><li>Desarrollo de app en React Native con Expo para usuarios (socios), consumiendo APIs REST con Axios y navegación con React Navigation.</li><li>Integración con backend .NET: APIs de eventos (ASP.NET Core, Dapper, PostgreSQL) y middleware en .NET 6 para centralizar lógica y operaciones.</li><li>Funcionalidades de eventos y cupos: generación y lectura de QR, y emisión de PDFs desde servicios .NET.</li><li>Mejoras de UX y performance en dispositivos reales; builds y releases con Expo/EAS.</li></ul>',
+        'oc.fp.impact': 'Flujos para el hincha alineados con los mismos contratos de backend que la web y el SSO.',
+        'oc.fp.stack': 'Expo ~54 · React Native · React Navigation · Axios · ASP.NET Core · Dapper · PostgreSQL · middleware .NET 6 · QR · PDF · EAS',
         'experience.label': '// 03 — experiencia (resumida)',
         'experience.title': 'Experiencia',
-        'exp.av.desc': 'Desarrollo backend para plataformas de gestión tributaria multi-tenant con ASP.NET Core e integraciones con IBM/CTG y APIs externas.',
         'exp.av.period': '03/2025 — actualidad',
-        'exp.av.role': 'Desarrollador backend',
-        'exp.av.a1': 'Diseñé e implementé APIs REST con OpenAPI contract-first en un entorno multi-tenant.',
-        'exp.av.a2': 'Implementé autenticación basada en tokens, caché en memoria y Gzip para mejorar la latencia y reducir la carga.',
-        'exp.av.a3': 'Servicios containerizados con Docker y despliegue en Kubernetes / OpenShift con configuración por entorno.',
-        'exp.far.desc': 'React Native / Expo: autenticación, manejo de sesiones y consumo de APIs HTTP backend.',
-        'exp.far.role': 'Desarrollador móvil',
-        'exp.far.a1': 'OAuth y deep linking entre sign-in web y sesiones nativas.',
-        'exp.far.a2': 'Navegación y gestión de estado para el ciclo de vida de sesión entre flujos.',
-        'exp.far.a3': 'Gradle, ADB y pruebas en dispositivo previas a publicación en stores.',
-        'exp.flex.desc': 'Front Next.js; APIs Node/Express; Firebase Auth; REST modular; integraciones OAuth de terceros.',
-        'exp.flex.role': 'Desarrollador full stack',
-        'exp.flex.a1': 'Rutas dinámicas y lazy loading en Next.js para reducir JavaScript inicial y el tiempo hasta la primera pintura útil.',
-        'exp.flex.a2': 'APIs REST modulares e integración de servicios externos mediante flujos OAuth.',
-        'exp.flex.a3': 'Autenticación y acceso por roles con Firebase Auth.',
+        'exp.av.role': 'Backend Developer',
+        'exp.av.a1': 'Desarrollo y mantenimiento de APIs backend para AGIP (cuenta corriente tributaria, padrón y servicios asociados), asegurando compatibilidad con portales y consumidores.',
+        'exp.av.a2': 'Implementación en .NET 5/6 con ASP.NET Core, EF Core y SQL Server; integraciones con MongoDB y DB2 en flujos de recaudación y sistemas legacy.',
+        'exp.av.a3': 'Diseño e implementación de autenticación y autorización con JWT en un entorno de datos sensibles y alto volumen de operaciones.',
+        'exp.av.a4': 'Logging estructurado y trazabilidad con Serilog para diagnóstico de incidentes y seguimiento de operaciones críticas.',
+        'exp.av.a5': 'Optimización de performance en consultas SQL, índices y endpoints de alto uso, reduciendo tiempos de respuesta en escenarios críticos.',
+        'exp.far.role': 'Desarrollador Mobile',
+        'exp.far.a1': 'Desarrollo de API REST en ASP.NET Core para aplicación móvil en React Native.',
+        'exp.far.a2': 'Implementación de autenticación y autorización con JWT, incluyendo registro, verificación y recuperación de cuenta (OTP por correo).',
+        'exp.far.a3': 'Búsquedas filtradas, favoritos y visualización/descarga de PDFs, con almacenamiento de archivos en S3.',
+        'exp.far.a4': 'Integración de pagos con PayPal y sincronización de suscripciones in-app mediante webhooks, manteniendo consistencia entre tienda y backend.',
+        'exp.far.a5': 'Desarrollo del cliente móvil en React Native: integración con la API, manejo de sesión/tokens, navegación y pruebas en dispositivos reales.',
+        'exp.far.a6': 'Pruebas automatizadas en backend (xUnit e integración sobre API) para reducir regresiones en autenticación y suscripciones.',
+        'exp.far.a7': 'Persistencia con EF Core y base de datos SQL; optimización de consultas en endpoints de alta frecuencia.',
+        'exp.flex.role': 'Desarrollador Full Stack',
+        'exp.flex.a1': 'Desarrollo de ATS SaaS multiempresa (vacantes, postulaciones y pipeline tipo Kanban) con roles por organización.',
+        'exp.flex.a2': 'Backend en ASP.NET Core con APIs REST, EF Core y SQL Server; optimización de consultas en endpoints.',
+        'exp.flex.a3': 'Autenticación con JWT y manejo de multitenancy para aislar datos por empresa.',
         'personal.summary.label': 'Resumen',
         'personal.live.label': 'En vivo',
         'personal.realspend.body': 'Paneles analíticos de finanzas; API HTTP pública documentada para integraciones.',
@@ -2195,14 +2230,17 @@
         { sel: '#integrations .fp-lbl-impact', key: 'freelance.block.impact', all: true },
         { sel: '#integrations .fp-lbl-stack', key: 'freelance.block.stack', all: true },
         { sel: '.oc-mobile-title', key: 'oc.mobile.title', html: true },
+        { sel: '.club-web-title', key: 'club.web.title', html: true },
+        { sel: '.club-web-date', key: 'club.web.date' },
+        { sel: '.oc-mobile-date', key: 'oc.mobile.date' },
         { sel: '.club-fp-context', key: 'club.fp.context' },
-        { sel: '.club-fp-scope', key: 'club.fp.scope' },
+        { sel: '.club-fp-scope', key: 'club.fp.scope', html: true },
         { sel: '.club-fp-impact', key: 'club.fp.impact' },
         { sel: '.club-fp-stack', key: 'club.fp.stack' },
         { sel: '.oc-fp-context', key: 'oc.fp.context' },
         { sel: '.oc-fp-scope', key: 'oc.fp.scope', html: true },
         { sel: '.oc-fp-impact', key: 'oc.fp.impact' },
-        { sel: '.oc-fp-stack', key: 'oc.fp.stack', html: true },
+        { sel: '.oc-fp-stack', key: 'oc.fp.stack' },
         { sel: '#personal-projects .section-label', key: 'personal.label' },
         { sel: '#personal-projects .section-title', key: 'personal.title', html: true },
         { sel: '.personal-summary-label', key: 'personal.summary.label', all: true },
@@ -2220,17 +2258,20 @@
         { sel: '#experience-timeline .section-title', key: 'experience.title', html: true },
         { sel: '.exp-av-period', key: 'exp.av.period' },
         { sel: '.exp-av-role', key: 'exp.av.role' },
-        { sel: '.exp-av-desc', key: 'exp.av.desc' },
         { sel: '.exp-av-a1', key: 'exp.av.a1' },
         { sel: '.exp-av-a2', key: 'exp.av.a2' },
         { sel: '.exp-av-a3', key: 'exp.av.a3' },
+        { sel: '.exp-av-a4', key: 'exp.av.a4' },
+        { sel: '.exp-av-a5', key: 'exp.av.a5' },
         { sel: '.exp-far-role', key: 'exp.far.role' },
-        { sel: '.exp-far-desc', key: 'exp.far.desc' },
         { sel: '.exp-far-a1', key: 'exp.far.a1' },
         { sel: '.exp-far-a2', key: 'exp.far.a2' },
         { sel: '.exp-far-a3', key: 'exp.far.a3' },
+        { sel: '.exp-far-a4', key: 'exp.far.a4' },
+        { sel: '.exp-far-a5', key: 'exp.far.a5' },
+        { sel: '.exp-far-a6', key: 'exp.far.a6' },
+        { sel: '.exp-far-a7', key: 'exp.far.a7' },
         { sel: '.exp-flex-role', key: 'exp.flex.role' },
-        { sel: '.exp-flex-desc', key: 'exp.flex.desc' },
         { sel: '.exp-flex-a1', key: 'exp.flex.a1' },
         { sel: '.exp-flex-a2', key: 'exp.flex.a2' },
         { sel: '.exp-flex-a3', key: 'exp.flex.a3' },
