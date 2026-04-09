@@ -2354,7 +2354,10 @@
                 'Content-Type': 'application/json',
                 'X-Tenant': 'google'
               },
-              body: JSON.stringify({ prompt: promptText })
+              body: JSON.stringify({
+                prompt: promptText,
+                systemInstruction: 'Respond in one short sentence in Spanish.'
+              })
             });
             const text = await res.text();
             const ms = Math.round(performance.now() - t0);
